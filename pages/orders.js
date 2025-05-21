@@ -33,12 +33,14 @@ export default function OrdersPage() {
                                 {order.city} {order.postalCode} {order.country}<br/>
                                 {order.streetAddress}
                             </td>
-                            {order.line_items.map(l => (
-                                <>
+                            <td>
+                            {order.line_items.map((l, i) => (
+                                <div key={i}>
                                  {l.price_data?.product_data.name} x
                                  {l.quantity}<br/>
-                                </>
+                                </div>
                             ))}
+                            </td>
                         </tr>
                     ))}
                 </tbody>
